@@ -1,8 +1,5 @@
 ---
 
-- name: install php 5.4 with LSAPI
-  yum: name=php-litespeed enablerepo=remi state=present
-
 - name: install php common
   yum: name=php-common enablerepo=remi state=present
 
@@ -11,6 +8,9 @@
 
 - name: install php devel
   yum: name=php-devel enablerepo=remi state=present
+
+- name: install php 5.4 with LSAPI
+  yum: name=php-litespeed enablerepo=remi state=present
 
 - name: install php pdo
   yum: name=php-pdo enablerepo=remi state=present
