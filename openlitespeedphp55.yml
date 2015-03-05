@@ -1,0 +1,8 @@
+---
+
+- hosts: internals
+  sudo: yes
+  roles:
+  - update
+  - openlitespeed
+  - php55

@@ -1,0 +1,31 @@
+---
+
+- name: copy mariadb repo
+  template:
+    src=mariadb.repo.jowy
+    dest=/etc/yum.repos.d/mariadb.repo
+    owner=root mode=0644
+
+- name: remove mysqlibs
+  action: command rpm -e --nodeps mysql-libs
+  ignore_errors: true
+
+- name: install mariadb 10 server
+  yum: name=MariaDB-server state=present
+
+- name: install mariadb 10 client
+  yum: name=MariaDB-client state=present
+
+- name: install mariadb 10 compat
+  yum: name=MariaDB-compat state=present
+
+- name: install mariadb 10 shared
+  yum: name=MariaDB-shared state=present
+
+- name : backup old config
+  action: command mv /etc/my.cnf /etc/my.cnf.bak
+
+- name: copy provide mysql config
+  action: command cp /usr/share/mysql/my-small.cnf /etc/my.cnf
+  notify:
+  - mysql-restart

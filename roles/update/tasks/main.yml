@@ -1,0 +1,11 @@
+- name: install epel package
+  yum: name=http://buaya.klas.or.id/epel/6/i386/epel-release-6-8.noarch.rpm state=present
+
+- name: install php remi repository
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+
+- name: install development tools
+  yum: name="@Development tools" state=present
+
+- name: update package
+  yum: name=* state=latest enablerepo=remi,remi-php55

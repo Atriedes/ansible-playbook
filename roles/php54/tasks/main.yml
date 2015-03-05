@@ -1,0 +1,35 @@
+---
+
+- name: install php 5.4 with LSAPI
+  yum: name=php-litespeed enablerepo=remi state=present
+
+- name: symlink php to openlitespeed php
+  action: command ln -sf /usr/bin/lsphp /usr/local/lsws/fcgi-bin/lsphp5
+
+- name: install ioncube loader
+  yum: name=php-ioncube-loader enablerepo=remi state=present
+
+- name: install php gd
+  yum: name=php-gd enablerepo=remi state=present
+
+- name: install php gmp
+  yum: name=php-gmp enablerepo=remi state=present
+
+- name: install php imap
+  yum: name=php-imap enablerepo=remi state=present
+
+- name: install php mbstring
+  yum: name=php-mbstring enablerepo=remistate=present
+
+- name: install php mcrypt
+  yum: name=php-mcrypt enablerepo=remi state=present
+
+- name: install php pdo
+  yum: name=php-php-pdo enablerepo=remi state=present
+
+- name: install php mysql
+  yum: name=php-mysql enablerepo=remi state=present
+
+- name: install php devel
+  yum: name=php-devel enablerepo=remi state=present
+
