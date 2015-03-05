@@ -6,6 +6,9 @@
 - name: install latest stable openlitespeed
   yum: name=openlitespeed state=present
 
+- name: symlink php to openlitespeed php
+  action: command ln -sf /usr/bin/lsphp /usr/local/lsws/fcgi-bin/lsphp5
+
 - name: create vhost dir
   action: command mkdir /usr/local/lsws/vhost
 

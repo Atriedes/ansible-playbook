@@ -3,11 +3,11 @@
 - name: install php 5.4 with LSAPI
   yum: name=php-litespeed enablerepo=remi state=present
 
-- name: symlink php to openlitespeed php
-  action: command ln -sf /usr/bin/lsphp /usr/local/lsws/fcgi-bin/lsphp5
-
 - name: install ioncube loader
   yum: name=php-ioncube-loader enablerepo=remi state=present
+
+- name: install php gd
+  yum: name=php-cli enablerepo=remi state=present
 
 - name: install php gd
   yum: name=php-gd enablerepo=remi state=present
