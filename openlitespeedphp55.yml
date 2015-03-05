@@ -4,5 +4,5 @@
   sudo: yes
   roles:
   - update
-  - openlitespeed
   - php55
+  - openlitespeed

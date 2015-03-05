@@ -6,5 +6,20 @@
 - name: install latest stable openlitespeed
   yum: name=openlitespeed state=present
 
-- name: start openlitespeed service
-  action: command /usr/local/lsws/bin/lswsctrl start
+- name: create vhost dir
+  action: command mkdir /usr/local/lsws/vhost
+
+- name: chown to vhost dir to suexex user
+  action: command chown -R {{ suexec_user }}:{{ suexec_grou }} /usr/local/lsws/vhost
+
+- name: backup old phpsuexec template
+  action: command mv /usr/local/lsws/conf/templates/phpsuexec.xml /usr/local/lsws/conf/templates/phpsuexec.xml.bak
+
+- name: copy my optimized phpsuexec template
+  template:
+    src=phpsuexec.xml.jowy
+    dest=/usr/local/lsws/conf/templates/phpsuexec.xml
+    owner=lsadm mode=0644
+
+- name: restart openlitespeed service
+  action: command /usr/local/lsws/bin/lswsctrl restart
