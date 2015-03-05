@@ -6,6 +6,9 @@
 - name: install php common
   yum: name=php-common enablerepo=remi state=present
 
+- name: install php cli
+  yum: name=php-cli enablerepo=remi state=present
+
 - name: install php devel
   yum: name=php-devel enablerepo=remi state=present
 
@@ -17,9 +20,6 @@
 
 - name: install ioncube loader
   yum: name=php-ioncube-loader enablerepo=remi state=present
-
-- name: install php gd
-  yum: name=php-cli enablerepo=remi state=present
 
 - name: install php gd
   yum: name=php-gd enablerepo=remi state=present
