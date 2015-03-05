@@ -8,4 +8,4 @@
   yum: name="@Development tools" state=present
 
 - name: update package
-  yum: name=* state=latest enablerepo=remi,remi-php55
+  yum: name=* state=latest
