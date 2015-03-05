@@ -13,7 +13,7 @@
   file: path=/usr/local/lsws/vhost state=directory
 
 - name: chown to vhost dir to suexec user
-  file: owner={{ suexec_user }} group={{ suexec_group }} path=/usr/local/lsws/vhost mode=644
+  action: command chown -R {{ suexec_user }}:{{ suexec_group }} /usr/local/lsws/vhost
 
 - name: backup old phpsuexec template
   action: command mv /usr/local/lsws/conf/templates/phpsuexec.xml /usr/local/lsws/conf/templates/phpsuexec.xml.bak
