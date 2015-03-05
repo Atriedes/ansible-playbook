@@ -31,7 +31,7 @@
   yum: name=php-imap enablerepo=remi state=present
 
 - name: install php mbstring
-  yum: name=php-mbstring enablerepo=remistate=present
+  yum: name=php-mbstring enablerepo=remi state=present
 
 - name: install php mcrypt
   yum: name=php-mcrypt enablerepo=remi state=present
